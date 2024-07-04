@@ -3,44 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Essential HTML Tags</title>
+    <title>Home Page</title>
+    <style>
+        .slider {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .three-pics {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 0 20px;
+        }
+        .three-pics .pic {
+            flex: 1;
+            margin: 0 10px;
+            text-align: center;
+        }
+        .three-pics .pic img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+        }
+    </style>
 </head>
 <body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
     <header style="background-color: #333; color: white; padding: 10px 0; text-align: center;">
         <h1 style="margin: 0;">Welcome to My Website</h1>
         <nav>
             <ul style="list-style: none; padding: 0; margin: 10px 0; display: flex; justify-content: center;">
-                <li style="margin: 0 10px;"><a href="#home" style="color: white; text-decoration: none;">Home</a></li>
-                <li style="margin: 0 10px;"><a href="#about" style="color: white; text-decoration: none;">About</a></li>
-                <li style="margin: 0 10px;"><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+                <li style="margin: 0 10px;"><a href="index.html" style="color: white; text-decoration: none;">Home</a></li>
+                <li style="margin: 0 10px;"><a href="about.html" style="color: white; text-decoration: none;">About</a></li>
+                <li style="margin: 0 10px;"><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></li>
             </ul>
         </nav>
     </header>
-    
+
     <main style="padding: 20px;">
-        <section id="home" style="margin-bottom: 20px; background-color: white; padding: 20px; border-radius: 5px;">
-            <h2 style="margin-top: 0;">Home</h2>
-            <p>This is the home section of the website.</p>
-        </section>
-        
-        <section id="about" style="margin-bottom: 20px; background-color: white; padding: 20px; border-radius: 5px;">
-            <h2 style="margin-top: 0;">About</h2>
-            <p>This section contains information about the website.</p>
-        </section>
-        
-        <section id="contact" style="background-color: white; padding: 20px; border-radius: 5px;">
-            <h2 style="margin-top: 0;">Contact</h2>
-            <form action="/submit-form" method="post">
-                <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
-                <input type="text" id="name" name="name" required style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;">
-                <br>
-                <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
-                <input type="email" id="email" name="email" required style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;">
-                <br>
-                <input type="submit" value="Submit" style="background-color: #333; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
-            </form>
+        <!-- Slider Section -->
+        <div class="slider">
+            <div class="slides">
+                <img src="./pics/R.jpg" alt="Slider Image">
+            </div>
+        </div>
+
+        <!-- Three Pics Section -->
+        <section class="three-pics">
+            <div class="pic">
+                <img src="./pics/pic2.jpg" alt="Image 1">
+                <p>Some text under image 1</p>
+            </div>
+            <div class="pic">
+                <img src="./pics/pic3.jpg" alt="Image 2">
+                <p>Some text under image 2</p>
+            </div>
+            <div class="pic">
+                <img src="./pics/pic4.jpg" alt="Image 3">
+                <p>Some text under image 3</p>
+            </div>
         </section>
     </main>
     
-    <footer style="background-color: #333; color: white; text-align: center; padding: 10px 0; position: absolute; width: 100%; bottom: 0;">
-        <p style="
+    <footer>
+        <p style="margin: 0;">&copy; 2024 My Website</p>
+    </footer>
+
+    <script>
+        // Simple slider functionality (optional enhancement)
+        let sliderIndex = 0;
+        const slides = document.querySelector('.slides');
+        const images = document.querySelectorAll('.slides img');
+
+        function showNextSlide() {
+            sliderIndex = (sliderIndex + 1) % images.length;
+            slides.style.transform = `translateX(${-sliderIndex * 100}%)`;
+        }
+
+        setInterval(showNextSlide, 3000); // Change slide every 3 seconds
+    </script>
+</body>
+</html>
